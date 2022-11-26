@@ -31,4 +31,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'shopify' => [
+        'app_key' => env('SHOPIFY_API_KEY'),
+        'app_secret' => env('SHOPIFY_API_SECRET'),
+        'app_scopes' => explode(",", env('SHOPIFY_APP_SCOPES', '')),
+        'app_host' => env('SHOPIFY_APP_HOST_NAME'),
+        'storefront_accesstoken' => env('SHOPIFY_FRONT_ACCESSTOKEN'),
+        'api_version' => env('SHOPIFY_API_VERSION', "2022-01"),
+        'store_domain' => env('SHOPIFY_STORE_DOMANI'),
+    ],
+
 ];

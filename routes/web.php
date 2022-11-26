@@ -1,6 +1,9 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use Shopify\Clients\Rest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('shopifytest/products', function(Rest $client){
+    // . Show results of shopify api's /products uri
+
+    $response = $client->get('products');
+    return $response->getDecodedBody();
+});
+
+Route::get('shopifytest/orders', function(Rest $client){
+    // . Show results of shopify api's /orders uri
+
+    $response = $client->get('orders');
+    return $response->getDecodedBody();
 });
