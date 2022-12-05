@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Shopify\Clients\Rest;
+use Google\Cloud\Translate\V2\TranslateClient;
 
 
 /*
@@ -32,4 +33,13 @@ Route::get('shopifytest/orders', function(Rest $client){
 
     $response = $client->get('orders');
     return $response->getDecodedBody();
+});
+
+Route::get('translatetest', function(TranslateClient $translate){
+    
+
+    // Translate text from english to french.
+    $result = $translate->translate('Dear friends');
+
+    echo $result['text'];
 });
