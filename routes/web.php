@@ -35,11 +35,15 @@ Route::get('shopifytest/orders', function(Rest $client){
     return $response->getDecodedBody();
 });
 
-Route::get('translatetest', function(TranslateClient $translate){
-    
+Route::get('translatetest', function(){
+
+    $translate = new TranslateClient([
+        'key' => config('services.googlecloud.translation_api_key'),
+        'target' => config('services.googlecloud.default_target'),
+    ]);
 
     // Translate text from english to french.
-    $result = $translate->translate('Dear friends');
+    $result = $translate->translate('Hello world!');
 
-    echo $result['text'];
+    echo $result['text'] . "\n";
 });

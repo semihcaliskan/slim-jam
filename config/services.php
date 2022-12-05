@@ -41,4 +41,9 @@ return [
         'store_domain' => env('SHOPIFY_STORE_DOMANI'),
     ],
 
+    'googlecloud' => [
+        'translation_api_key' => env('GOOGLE_TRANSLATION_API_KEY'),
+        'default_target' => env('GOOGLE_TRANSLATION_DEFAULT_TARGET'),
+    ],
+
 ];
